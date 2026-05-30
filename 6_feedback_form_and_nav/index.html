@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Feedback collection form and responsive horizontal navigation bar demonstration page.">
+  <title>Dynamic Feedback Form & Navigation Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <span>Aether</span>Soft 🌌
+    </a>
+    
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-link">Home</a></li>
+      <li><a href="#" class="nav-link">Services</a></li>
+      <li><a href="#" class="nav-link">Portfolio</a></li>
+      <li><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Centered Feedback Form Card -->
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <div class="form-container">
+      <h2 class="form-title">Send Us Feedback</h2>
+      <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-bottom: 2rem;">Your reviews help us refine our developer tools</p>
+
+      <form id="feedback-form">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="user-name">Your Full Name</label>
+          <input type="text" id="user-name" class="form-control" placeholder="e.g. John Doe" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="user-email">Email Address</label>
+          <input type="email" id="user-email" class="form-control" placeholder="e.g. john@example.com" required>
+        </div>
+
+        <!-- Comments -->
+        <div class="form-group">
+          <label for="user-comments">Comments / Feedback</label>
+          <textarea id="user-comments" class="form-control" rows="4" placeholder="Share your suggestions or complaints with us..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Feedback</button>
+      </form>
+    </div>
+  </main>
+
+  <div class="success-toast" id="toast">Feedback Submitted Successfully!</div>
+
+  <script>
+    document.getElementById('feedback-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const toast = document.getElementById('toast');
+      toast.style.display = 'block';
+      
+      setTimeout(() => {
+        toast.style.display = 'none';
+        document.getElementById('feedback-form').reset();
+      }, 2500);
+    });
+  </script>
+</body>
+</html>

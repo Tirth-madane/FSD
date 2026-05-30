@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responsive hamburger navigation bar and animated centered validation login form">
+  <title>Responsive Navbar & Animated Login Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Responsive Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span>Nova</span>Tech 🌌
+      </a>
+      
+      <!-- Hamburger Icon (Mobile) -->
+      <button class="hamburger" id="hamburger-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Desktop Links / Collapsible Mobile links -->
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Services</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Centered Login Form with validation animation -->
+  <main class="login-wrapper">
+    <div class="login-card" id="login-card-container">
+      <div class="login-header">
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem;">Sign In</h2>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Enter credentials to unlock administrative settings</p>
+      </div>
+
+      <form id="login-form">
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email-field">Email Address</label>
+          <input 
+            type="email" 
+            id="email-field" 
+            class="form-control" 
+            placeholder="e.g. admin@novatech.com" 
+            required
+          >
+          <div class="error-text" id="email-error">Enter a valid email address.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password-field">Password</label>
+          <input 
+            type="password" 
+            id="password-field" 
+            class="form-control" 
+            placeholder="••••••••" 
+            required
+          >
+          <div class="error-text" id="password-error">Password must be at least 6 characters.</div>
+        </div>
+
+        <button type="submit" class="btn-login">Unlock Portal</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Part A: Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger-toggle');
+    const navLinks = document.getElementById('nav-links-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Part B: Login Form validation and dynamic shaking animations
+    const loginForm = document.getElementById('login-form');
+    const loginCard = document.getElementById('login-card-container');
+    const emailField = document.getElementById('email-field');
+    const passwordField = document.getElementById('password-field');
+    
+    const emailErr = document.getElementById('email-error');
+    const passwordErr = document.getElementById('password-error');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Clear errors
+      emailField.classList.remove('error-state', 'valid-state');
+      passwordField.classList.remove('error-state', 'valid-state');
+      emailErr.style.display = 'none';
+      passwordErr.style.display = 'none';
+      loginCard.classList.remove('shake-error');
+
+      const emailVal = emailField.value.trim();
+      const passwordVal = passwordField.value.trim();
+      
+      let isValid = true;
+
+      // 1. Email format check
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        emailField.classList.add('error-state');
+        emailErr.innerText = "Invalid email formatting";
+        emailErr.style.display = 'block';
+        isValid = false;
+      }
+
+      // 2. Password length check
+      if (passwordVal.length < 6) {
+        passwordField.classList.add('error-state');
+        passwordErr.innerText = "Minimum length must be 6 characters";
+        passwordErr.style.display = 'block';
+        isValid = false;
+      }
+
+      // 3. Demo Admin check: admin@novatech.com / secret123
+      if (isValid) {
+        if (emailVal === 'admin@novatech.com' && passwordVal === 'secret123') {
+          // Valid credentials
+          emailField.classList.add('valid-state');
+          passwordField.classList.add('valid-state');
+          setTimeout(() => {
+            alert("Credentials Verified! Welcome, Administrator.");
+            loginForm.reset();
+            emailField.classList.remove('valid-state');
+            passwordField.classList.remove('valid-state');
+          }, 300);
+        } else {
+          // Trigger shake animation and error borders
+          isValid = false;
+          emailField.classList.add('error-state');
+          passwordField.classList.add('error-state');
+          emailErr.innerText = "Invalid credentials";
+          emailErr.style.display = 'block';
+        }
+      }
+
+      // Play Shake animation on validation failure
+      if (!isValid) {
+        // Void reflow trick to restart animation if clicked repeatedly
+        void loginCard.offsetWidth;
+        loginCard.classList.add('shake-error');
+      }
+    });
+  </script>
+</body>
+</html>

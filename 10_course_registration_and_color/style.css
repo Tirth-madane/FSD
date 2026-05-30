@@ -1,0 +1,206 @@
+/* c:\Users\Deepak Chheda\Downloads\DEVANSH SUBMISSION\fsd\10_course_registration_and_color\style.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #6366f1; /* Indigo */
+  --primary-hover: #4f46e5;
+  --bg-slate: #0b0f19;
+  --bg-card: rgba(22, 30, 49, 0.7);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --success: #10b981;
+  --warning: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  /* Smooth backdrop transition */
+  background-color: var(--bg-slate);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-bottom: 5rem;
+}
+
+.container {
+  max-width: 950px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Glassmorphism panels */
+.panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.panel h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  border-left: 4px solid var(--primary);
+  padding-left: 0.75rem;
+}
+
+/* Forms styling */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Table grid list */
+.course-table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.status-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-active {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+.status-inactive {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+/* Color Palette Grid buttons */
+.color-btn-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.color-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.color-dot:hover {
+  transform: scale(1.15);
+}
+
+/* Float Confirmation Toast */
+.toast-msg {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background: var(--success);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  font-weight: 600;
+  z-index: 200;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast-msg.show-toast {
+  opacity: 1;
+  transform: translateY(0);
+}

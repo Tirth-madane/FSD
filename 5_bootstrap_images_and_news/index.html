@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bootstrap side-by-side responsive images grid and structured news article page">
+  <title>Gallery & News Article Portal</title>
+  <!-- Load Bootstrap 5 CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dynamic Reading Progress Bar -->
+  <div class="reading-progress-bar" id="progress-bar"></div>
+
+  <!-- Header Banner -->
+  <div class="bg-dark text-white text-center py-5 mb-5">
+    <div class="container-fluid">
+      <h1 class="display-5 fw-bold font-monospace">Visual Explorer & News Hub</h1>
+      <p class="lead mb-0 text-secondary">Demonstrating responsive Bootstrap columns and semantic HTML publishing.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Part A: Three Images Side by Side using HTML and Bootstrap -->
+    <h2 class="h3 fw-bold border-bottom pb-2 mb-4">Responsive Landscape Cards</h2>
+    <div class="row g-4 mb-5">
+      
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="img-zoom-wrapper">
+          <div class="img-zoom-card" style="background: linear-gradient(135deg, #f97316, #3b82f6);">
+            <div class="card-caption-overlay">
+              <h4>Alpine Sunsets</h4>
+              <p>Climbing high altitude peaks during golden hour.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="img-zoom-wrapper">
+          <div class="img-zoom-card" style="background: linear-gradient(135deg, #059669, #0f172a);">
+            <div class="card-caption-overlay">
+              <h4>Whispering Pines</h4>
+              <p>Exploring silent evergreen trails in the valley.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="img-zoom-wrapper">
+          <div class="img-zoom-card" style="background: linear-gradient(135deg, #0284c7, #4f46e5);">
+            <div class="card-caption-overlay">
+              <h4>Ocean Horizons</h4>
+              <p>Witnessing deep blue marine currents and reefs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Part B: HTML structure for an online news article page -->
+    <article class="news-container">
+      <!-- Title -->
+      <h1 class="article-title">The Dawn of Quantum Computing in Software Engineering</h1>
+      
+      <!-- Author, Date, Avatar -->
+      <div class="author-meta-bar">
+        <div class="author-avatar">👨‍💻</div>
+        <div class="meta-details">
+          <span class="author-name">Dr. Nathan Vance</span>
+          <span class="publish-date">Published on May 30, 2026 • 5 min read</span>
+        </div>
+      </div>
+
+      <!-- Article Body -->
+      <div class="article-body">
+        <p>Quantum computing is rapidly transitioning from theoretical physics experiments to real-world software integration. As tech giants announce advances in qubit counts and fault tolerance, developer networks are racing to write algorithms that can leverage quantum superpositions.</p>
+
+        <p>Traditional binary systems operate with bits restricted to a static state of 0 or 1. In contrast, quantum bits (qubits) occupy a superposition, embodying both states simultaneously. This architectural shift unlocks computational paths capable of solving complex problems in cryptography, biochemistry, and optimization in fractions of a second.</p>
+
+        <blockquote>
+          "The core challenge of this decade is not just assembling quantum hardware, but engineering classical wrappers that let traditional developers interact with quantum processing units without needing a degree in particle physics."
+        </blockquote>
+
+        <p>Currently, the tooling ecosystem is maturing around Python-based frameworks such as Qiskit and Cirq. These tools allow classical code to configure logic gates on physical chipsets hosted in the cloud. As compiling pipelines optimize, the industry expects hybrid architectures to dominate corporate computing models.</p>
+
+        <p>In summary, the quantum shift represents a foundational change in system architecture. Software developers who start understanding vector states and probability densities today will find themselves leading the engineering teams of tomorrow.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Progress bar tracker scroll script -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById("progress-bar").style.width = scrolled + "%";
+    });
+  </script>
+</body>
+</html>

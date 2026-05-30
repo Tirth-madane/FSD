@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Session user counter simulation and CSS keyframes movable box animation control deck">
+  <title>Session Counter & Box Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <div style="margin-bottom: 2.5rem; text-align: center;">
+      <h1 style="font-size: 2.2rem; font-weight: 700; mb-2">Session Logs & Animations</h1>
+      <p style="color: var(--text-muted)">Interactive showcase of sessionStorage cache logging and CSS keyframe configurations.</p>
+    </div>
+
+    <!-- Section 1: User Session Logger -->
+    <section>
+      <h2>Session User Logger</h2>
+      <p>Simulate user logons. This panel updates and displays the active login count in the current browser session using <code>sessionStorage</code>.</p>
+      
+      <div class="counter-badge">
+        <span style="font-size: 0.9rem; color: var(--text-muted); display: block; text-transform: uppercase;">Logged Users (This Session)</span>
+        <span class="counter-value" id="user-count-display">0</span>
+      </div>
+
+      <form id="session-login-form">
+        <div class="form-row">
+          <input type="text" id="username-input" class="form-control" placeholder="Enter username to simulate login..." required>
+          <button type="submit" class="btn">Simulate Login</button>
+          <button type="button" class="btn btn-secondary" onclick="clearSessionLogs()">Reset Session</button>
+        </div>
+      </form>
+
+      <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Current Session Log Entries</h3>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Username</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="session-log-table">
+            <!-- Append rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2: Box Slide Animation Control Deck -->
+    <section>
+      <h2>Movable Box Animation Track</h2>
+      <p>Control the box motion inside the track by toggling play state and modifying duration rates dynamically.</p>
+      
+      <!-- Track Runway -->
+      <div class="animation-track">
+        <div class="animated-box" id="moving-box"></div>
+      </div>
+
+      <!-- Controls Deck -->
+      <div class="controls-group">
+        <button class="btn" id="play-pause-btn">Pause Animation</button>
+        <button class="btn btn-secondary" onclick="adjustSpeed('2s', 'Fast')">Fast (2s)</button>
+        <button class="btn btn-secondary" onclick="adjustSpeed('4s', 'Normal')">Normal (4s)</button>
+        <button class="btn btn-secondary" onclick="adjustSpeed('8s', 'Slow')">Slow (8s)</button>
+        <span id="speed-label" style="align-self: center; font-size: 0.9rem; color: var(--text-muted); margin-left: 1rem;">Speed: Normal</span>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // --- PART A: Session Login Counting ---
+    const loginForm = document.getElementById('session-login-form');
+    const usernameInput = document.getElementById('username-input');
+    const countDisplay = document.getElementById('user-count-display');
+    const tableBody = document.getElementById('session-log-table');
+
+    function loadSessionData() {
+      // Fetch list from sessionStorage
+      let logs = JSON.parse(sessionStorage.getItem('activeLogins')) || [];
+      
+      // Update badge
+      countDisplay.innerText = logs.length;
+
+      // Update log table
+      if (logs.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">No simulated sessions logged.</td></tr>`;
+      } else {
+        tableBody.innerHTML = logs.map(entry => `
+          <tr>
+            <td>${entry.timestamp}</td>
+            <td><strong>${escapeHTML(entry.username)}</strong></td>
+            <td><span style="color: var(--primary);">● Logged In</span></td>
+          </tr>
+        `).reverse().join('');
+      }
+    }
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = usernameInput.value.trim();
+      if (!username) return;
+
+      const time = new Date().toLocaleTimeString();
+      let logs = JSON.parse(sessionStorage.getItem('activeLogins')) || [];
+      
+      // Push new user entry
+      logs.push({
+        username,
+        timestamp: time
+      });
+
+      sessionStorage.setItem('activeLogins', JSON.stringify(logs));
+      usernameInput.value = '';
+      loadSessionData();
+    });
+
+    window.clearSessionLogs = function() {
+      sessionStorage.removeItem('activeLogins');
+      loadSessionData();
+    };
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag)
+      );
+    }
+
+    // --- PART B: Box Animation Controller ---
+    const movingBox = document.getElementById('moving-box');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const speedLabel = document.getElementById('speed-label');
+
+    playPauseBtn.addEventListener('click', () => {
+      // Toggle play state value
+      const state = window.getComputedStyle(movingBox).animationPlayState;
+      
+      if (state === 'running') {
+        movingBox.style.animationPlayState = 'paused';
+        playPauseBtn.innerText = 'Resume Animation';
+        playPauseBtn.style.background = '#3b82f6'; // Blue when paused
+      } else {
+        movingBox.style.animationPlayState = 'running';
+        playPauseBtn.innerText = 'Pause Animation';
+        playPauseBtn.style.background = 'var(--primary)'; // Restore emerald
+      }
+    });
+
+    window.adjustSpeed = function(duration, speedName) {
+      movingBox.style.animationDuration = duration;
+      speedLabel.innerText = `Speed: ${speedName}`;
+    };
+
+    // Initial session loading
+    loadSessionData();
+  </script>
+</body>
+</html>

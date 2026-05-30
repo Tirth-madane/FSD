@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apex Institute of Technology College Portal and Admissions Guide">
+  <title>Apex Institute of Technology - Information Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- College Header -->
+  <header>
+    <h1>Apex Institute of Technology</h1>
+    <p>Empowering Innovation, Shaping Tomorrow's Leaders</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- Section 1: Academic Programs & Fees (Table demonstration) -->
+    <section>
+      <h2>Academic Programs & Tuition</h2>
+      <p>We offer cutting-edge engineering and management disciplines. Below is the structured tuition and duration guide for the academic year 2026-27.</p>
+      
+      <div class="fee-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Course Code</th>
+              <th>Program Description</th>
+              <th>Department</th>
+              <th>Duration</th>
+              <th>Annual Fees (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CS-401</strong></td>
+              <td>B.Tech Computer Science & Engineering</td>
+              <td>Computer Science</td>
+              <td>4 Years</td>
+              <td>$12,500</td>
+            </tr>
+            <tr>
+              <td><strong>EC-402</strong></td>
+              <td>B.Tech Electronics & Communication</td>
+              <td>Electrical Eng.</td>
+              <td>4 Years</td>
+              <td>$11,000</td>
+            </tr>
+            <tr>
+              <td><strong>ME-403</strong></td>
+              <td>B.Tech Mechanical Engineering</td>
+              <td>Mechanical Eng.</td>
+              <td>4 Years</td>
+              <td>$10,000</td>
+            </tr>
+            <tr>
+              <td><strong>MB-201</strong></td>
+              <td>Master of Business Administration (MBA)</td>
+              <td>Management Study</td>
+              <td>2 Years</td>
+              <td>$15,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 2: Admissions & Procedures (Lists demonstration) -->
+    <section>
+      <h2>Admissions Timeline & Guidelines</h2>
+      <p>To join the cohort of 2026, candidates must complete the following onboarding tasks:</p>
+      
+      <ul class="admission-list">
+        <li>Submit online registration form along with official high school transcripts.</li>
+        <li>Appear and clear the national/state Level Engineering Entrance Examination (AIT-CET).</li>
+        <li>Participate in the counseling round and register branch preferences.</li>
+        <li>Upload verification documents (Citizenship proof, transcripts, scorecards).</li>
+        <li>Pay initial seat confirmation fees to secure enrollment.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Campus Gallery (Images demonstration) -->
+    <section>
+      <h2>Explore Our Campus Infrastructure</h2>
+      <p>Apex Institute provides world-class research facilities, hostels, and recreational areas for overall student development.</p>
+      
+      <div class="campus-gallery">
+        <div class="gallery-card">
+          <div>📚</div>
+          <p>Central Digital Library</p>
+        </div>
+        <div class="gallery-card">
+          <div>🔬</div>
+          <p>Advanced Robotics Lab</p>
+        </div>
+        <div class="gallery-card">
+          <div>🏋️</div>
+          <p>Indoor Sports Complex</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Admissions Enquiry (Form demonstration) -->
+    <section>
+      <h2>Online Admissions Enquiry Form</h2>
+      <p>Fill out the inquiry form below, and our admissions advisor will contact you within 24 business hours.</p>
+      
+      <form id="enquiry-form" onsubmit="event.preventDefault(); alert('Enquiry received! We will contact you soon.'); this.reset();">
+        <div class="form-group">
+          <label for="enquiry-name">Full Name</label>
+          <input type="text" id="enquiry-name" class="form-control" placeholder="e.g. John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiry-email">Email Address</label>
+          <input type="email" id="enquiry-email" class="form-control" placeholder="e.g. john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiry-program">Preferred Program</label>
+          <select id="enquiry-program" class="form-control">
+            <option value="CS">Computer Science Engineering</option>
+            <option value="EC">Electronics & Communication</option>
+            <option value="ME">Mechanical Engineering</option>
+            <option value="MBA">MBA Management</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="enquiry-message">Questions / Comments</label>
+          <textarea id="enquiry-message" class="form-control" rows="3" placeholder="Tell us about your background or questions..."></textarea>
+        </div>
+
+        <button type="submit" class="btn">Submit Inquiry</button>
+      </form>
+    </section>
+
+    <!-- Section 5: AJAX Feedback Module (AJAX submission demonstration) -->
+    <section>
+      <h2>AJAX Student Feedback Hub</h2>
+      <p>Leave a review about your experience. Your feedback is sent to the database via background AJAX calls and dynamically displays below without reloading the page!</p>
+      
+      <div class="feedback-grid">
+        <!-- Form -->
+        <div>
+          <form id="feedback-form">
+            <div class="form-group">
+              <label for="fb-name">Your Name</label>
+              <input type="text" id="fb-name" class="form-control" placeholder="e.g. Emily Watson" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="fb-rating">Rating</label>
+              <select id="fb-rating" class="form-control">
+                <option value="5">⭐⭐⭐⭐⭐ Excellent (5/5)</option>
+                <option value="4">⭐⭐⭐⭐ Good (4/5)</option>
+                <option value="3">⭐⭐⭐ Average (3/5)</option>
+                <option value="2">⭐⭐ Fair (2/5)</option>
+                <option value="1">⭐ Poor (1/5)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="fb-comments">Comments</label>
+              <textarea id="fb-comments" class="form-control" rows="3" placeholder="Write your feedback..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn" id="fb-submit-btn">
+              <span>Submit Review</span>
+            </button>
+          </form>
+        </div>
+        
+        <!-- Live reviews list wall -->
+        <div>
+          <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">Real-time Student Reviews</h3>
+          <div class="reviews-wall" id="reviews-container">
+            <!-- Feed dynamically appended -->
+            <div class="review-card">
+              <div class="review-header">
+                <span class="review-author">David Lee (Alumni)</span>
+                <span class="review-rating">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p class="review-text">The Computer Science professors were incredible. The labs are equipped with high-performance machines. Highly recommend this college!</p>
+            </div>
+            <div class="review-card">
+              <div class="review-header">
+                <span class="review-author">Sophia Thorne (ME Student)</span>
+                <span class="review-rating">⭐⭐⭐⭐</span>
+              </div>
+              <p class="review-text">Great library resources. The sports complex was recently renovated. Campus cafeteria could use more variety though.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
