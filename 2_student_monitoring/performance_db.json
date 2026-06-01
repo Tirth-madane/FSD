@@ -1,0 +1,134 @@
+{
+  "teachers": [
+    {
+      "email": "teacher@school.com",
+      "password": "password123",
+      "name": "Prof. Sarah Jenkins"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Ethan Hunt",
+      "rollNo": "CS-201",
+      "class": "Sophomore A",
+      "marks": [
+        {
+          "subject": "Math",
+          "score": 92,
+          "maxScore": 100,
+          "date": "2026-05-10"
+        },
+        {
+          "subject": "Science",
+          "score": 88,
+          "maxScore": 100,
+          "date": "2026-05-12"
+        }
+      ],
+      "assignments": [
+        {
+          "title": "Calculus Homework",
+          "subject": "Math",
+          "status": "Submitted",
+          "date": "2026-05-15"
+        },
+        {
+          "title": "Physics Lab Report",
+          "subject": "Science",
+          "status": "Submitted",
+          "date": "2026-05-18"
+        }
+      ],
+      "feedback": [
+        {
+          "text": "Excellent logical skills. Consistent performer in class activities.",
+          "author": "Prof. Sarah Jenkins",
+          "date": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Clara Oswald",
+      "rollNo": "CS-202",
+      "class": "Sophomore A",
+      "marks": [
+        {
+          "subject": "Math",
+          "score": 76,
+          "maxScore": 100,
+          "date": "2026-05-10"
+        },
+        {
+          "subject": "Science",
+          "score": 94,
+          "maxScore": 100,
+          "date": "2026-05-12"
+        }
+      ],
+      "assignments": [
+        {
+          "title": "Calculus Homework",
+          "subject": "Math",
+          "status": "Pending",
+          "date": "2026-05-15"
+        },
+        {
+          "title": "Physics Lab Report",
+          "subject": "Science",
+          "status": "Submitted",
+          "date": "2026-05-18"
+        }
+      ],
+      "feedback": [
+        {
+          "text": "Clara has high analytical potential, needs to submit Math work on time.",
+          "author": "Prof. Sarah Jenkins",
+          "date": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Bruce Banner",
+      "rollNo": "CS-203",
+      "class": "Sophomore B",
+      "marks": [
+        {
+          "subject": "Math",
+          "score": 99,
+          "maxScore": 100,
+          "date": "2026-05-10"
+        },
+        {
+          "subject": "Science",
+          "score": 100,
+          "maxScore": 100,
+          "date": "2026-05-12"
+        }
+      ],
+      "assignments": [
+        {
+          "title": "Calculus Homework",
+          "subject": "Math",
+          "status": "Submitted",
+          "date": "2026-05-15"
+        },
+        {
+          "title": "Physics Lab Report",
+          "subject": "Science",
+          "status": "Submitted",
+          "date": "2026-05-18"
+        }
+      ],
+      "feedback": [
+        {
+          "text": "Incredible aptitude in biochemistry and advanced mathematical theories.",
+          "author": "Prof. Sarah Jenkins",
+          "date": "2026-05-22"
+        }
+      ]
+    }
+  ]
+}

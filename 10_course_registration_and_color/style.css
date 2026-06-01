@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #6366f1; /* Indigo */
-  --primary-hover: #4f46e5;
-  --bg-slate: #0b0f19;
-  --bg-card: rgba(22, 30, 49, 0.7);
-  --border: rgba(255, 255, 255, 0.08);
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --success: #10b981;
-  --warning: #f59e0b;
+  --primary: #4f46e5; /* Indigo */
+  --primary-hover: #4338ca;
+  --bg-slate: #eef2ff;
+  --bg-card: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --success: #059669;
+  --warning: #b45309;
 }
 
 * {
@@ -42,8 +42,7 @@ body {
   border-radius: 20px;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
 }
 
 .panel h2 {
@@ -76,11 +75,11 @@ body {
 
 .form-control {
   width: 100%;
-  background: rgba(255, 255, 255, 0.04);
+  background: #f3f4f6;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.65rem 0.85rem;
-  color: white;
+  color: var(--text-main);
   font-size: 0.9rem;
 }
 
@@ -105,12 +104,12 @@ body {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f8fafc;
   border: 1px solid var(--border);
   color: var(--text-main);
 }
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #e5e7eb;
 }
 
 /* Table grid list */
@@ -139,7 +138,7 @@ th {
 }
 
 tr:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 23, 42, 0.04);
 }
 
 .status-badge {
@@ -170,9 +169,9 @@ tr:hover {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid #f3f4f6;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(15,23,42,0.08);
   transition: transform 0.2s;
 }
 

@@ -2,14 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #f43f5e; /* Rose 500 */
-  --bg-dark: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --border: rgba(255, 255, 255, 0.08);
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --danger: #ef4444;
-  --success: #10b981;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+  --border: rgba(15, 23, 42, 0.12);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --danger: #dc2626;
+  --success: #16a34a;
 }
 
 * {
@@ -29,8 +30,7 @@ body {
 
 /* Part A: Responsive Navigation Menu (Desktop Mode) */
 header {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(12px);
+  background: #ffffff;
   border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 100;
@@ -72,7 +72,7 @@ header {
 }
 
 .nav-link:hover {
-  color: var(--text-main);
+  color: var(--primary-hover);
 }
 
 /* Hamburger button (Hidden on Desktop) */
@@ -111,8 +111,7 @@ header {
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 2.5rem;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
 }
 
 .login-header {
@@ -135,11 +134,11 @@ header {
 /* Colored rounded input fields */
 .form-control {
   width: 100%;
-  background: rgba(255, 255, 255, 0.03);
+  background: #f4f7fb;
   border: 2px solid var(--border);
   border-radius: 12px;
   padding: 0.75rem 1rem;
-  color: white;
+  color: var(--text-main);
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
@@ -209,8 +208,7 @@ header {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
     border-bottom: 1px solid var(--border);
     flex-direction: column;
     padding: 1.5rem 0;

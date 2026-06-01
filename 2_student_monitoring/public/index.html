@@ -12,7 +12,7 @@
   <!-- Header -->
   <header>
     <a href="#" class="logo">
-      <span>Edu</span>Track 📈
+      <span>Edu</span>Track
     </a>
     <div style="display: flex; gap: 1rem; align-items: center;">
       <span id="teacher-name-display" style="display: none; color: #818cf8; font-weight: 500;"></span>
@@ -66,7 +66,7 @@
       <div class="controls-bar">
         <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
           <input type="text" id="search-bar" class="search-input" placeholder="Search student by name or roll no...">
-          <select id="subject-filter" class="form-control" style="width: 180px; background: var(--bg-card); border-color: var(--border); color: white;">
+          <select id="subject-filter" class="form-control" style="width: 180px;">
             <option value="All">All Subjects</option>
             <option value="Math">Mathematics</option>
             <option value="Science">Science</option>
@@ -85,7 +85,7 @@
   <!-- Modal: Add Student -->
   <div class="modal-overlay" id="add-student-modal" style="display: none;">
     <div class="modal-content">
-      <button class="close-modal" onclick="closeModal('add-student-modal')">✕</button>
+      <button class="close-modal" onclick="closeModal('add-student-modal')">X</button>
       <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Add New Student</h3>
       
       <form id="add-student-form">
@@ -112,7 +112,7 @@
   <!-- Modal: Add Marks/Records -->
   <div class="modal-overlay" id="log-record-modal" style="display: none;">
     <div class="modal-content">
-      <button class="close-modal" onclick="closeModal('log-record-modal')">✕</button>
+      <button class="close-modal" onclick="closeModal('log-record-modal')">X</button>
       <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;" id="record-modal-title">Log Student Record</h3>
       
       <form id="log-record-form">

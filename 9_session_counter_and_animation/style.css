@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #10b981; /* Emerald */
-  --primary-hover: #059669;
-  --bg-dark: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --border: rgba(255, 255, 255, 0.08);
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+  --border: rgba(15, 23, 42, 0.12);
+  --text-main: #0f172a;
+  --text-muted: #6b7280;
 }
 
 * {
@@ -36,7 +36,7 @@ section {
   border-radius: 20px;
   padding: 2rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
 }
 
 section h2 {
@@ -71,11 +71,11 @@ section h2 {
 
 .form-control {
   flex-grow: 1;
-  background: rgba(255, 255, 255, 0.03);
+  background: #f3f4f6;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.6rem 1rem;
-  color: white;
+  color: var(--text-main);
   font-size: 0.95rem;
 }
 
@@ -101,12 +101,12 @@ section h2 {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f3f4f6;
   border: 1px solid var(--border);
   color: var(--text-main);
 }
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #e5e7eb;
 }
 
 table {
@@ -131,7 +131,7 @@ th {
 .animation-track {
   width: 100%;
   height: 100px;
-  background: rgba(0, 0, 0, 0.3);
+  background: #e5e7eb;
   border: 1px dashed var(--border);
   border-radius: 16px;
   position: relative;
@@ -146,8 +146,8 @@ th {
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #10b981, #3b82f6);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
   position: absolute;
   left: 10px;
   

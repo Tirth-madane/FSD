@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #c084fc; /* Light purple */
-  --primary-glow: rgba(192, 132, 252, 0.4);
-  --bg-dark: #090611;
-  --bg-card: rgba(26, 18, 46, 0.7);
-  --border: rgba(255, 255, 255, 0.08);
-  --text-main: #f3e8ff;
-  --text-muted: #a78bfa;
+  --primary: #2563eb; /* Blue */
+  --primary-glow: rgba(37, 99, 235, 0.25);
+  --bg-dark: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --border: rgba(15, 23, 42, 0.12);
+  --text-main: #0f172a;
+  --text-muted: #475569;
 }
 
 * {
@@ -22,23 +22,23 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   min-height: 100vh;
-  background-image: radial-gradient(circle at top right, rgba(167, 139, 250, 0.08), transparent 50%);
+  background-image: radial-gradient(circle at top right, rgba(37, 99, 235, 0.08), transparent 45%);
   display: flex;
   flex-direction: column;
 }
 
 /* Part B: Horizontal Navigation Bar with Hover Color & Sliding Underline */
 .navbar {
-  background: rgba(15, 10, 28, 0.85);
-  backdrop-filter: blur(12px);
+  background: #ffffff;
   border-bottom: 1px solid var(--border);
-  padding: 1.2rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
 .logo {
@@ -100,8 +100,7 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 24px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
 }
 
 .form-title {
@@ -127,11 +126,11 @@ body {
 
 .form-control {
   width: 100%;
-  background: rgba(255, 255, 255, 0.03);
+  background: #f8fafc;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 0.8rem 1rem;
-  color: white;
+  color: var(--text-main);
   font-size: 0.95rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -140,7 +139,7 @@ body {
 .form-control:focus {
   outline: none;
   border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff;
   box-shadow: 0 0 15px var(--primary-glow);
 }
 

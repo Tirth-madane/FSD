@@ -1,12 +1,13 @@
 {
   "name": "online-examination-system",
   "version": "1.0.0",
-  "description": "Full-stack Online Examination System",
+  "description": "Full-stack Online Examination System with MongoDB",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.24.0"
   }
 }

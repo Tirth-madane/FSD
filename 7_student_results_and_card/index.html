@@ -18,10 +18,10 @@
     const { useState, useMemo } = React;
 
     const SEED_STUDENTS = [
-      { id: 1, name: "Diana Prince", rollNo: "RES-901", math: 95, physics: 92, avatar: "👩‍🎓" },
-      { id: 2, name: "Arthur Curry", rollNo: "RES-902", math: 42, physics: 55, avatar: "👨‍🎓" },
-      { id: 3, name: "Barry Allen", rollNo: "RES-903", math: 99, physics: 98, avatar: "⚡" },
-      { id: 4, name: "Victor Stone", rollNo: "RES-904", math: 88, physics: 91, avatar: "🤖" }
+      { id: 1, name: "Diana Prince", rollNo: "RES-901", math: 95, physics: 92 },
+      { id: 2, name: "Arthur Curry", rollNo: "RES-902", math: 42, physics: 55 },
+      { id: 3, name: "Barry Allen", rollNo: "RES-903", math: 99, physics: 98 },
+      { id: 4, name: "Victor Stone", rollNo: "RES-904", math: 88, physics: 91 }
     ];
 
     function App() {
@@ -33,7 +33,6 @@
       const [roll, setRoll] = useState('');
       const [mathScore, setMathScore] = useState('');
       const [physScore, setPhysScore] = useState('');
-      const [avatar, setAvatar] = useState('👩‍🎓');
 
       // Add student record handler
       const handleSubmit = (e) => {
@@ -45,8 +44,7 @@
           name,
           rollNo: roll,
           math: Number(mathScore),
-          physics: Number(physScore),
-          avatar
+          physics: Number(physScore)
         };
 
         setStudents([...students, newRecord]);
@@ -130,19 +128,6 @@
                     required 
                   />
                 </div>
-                <div className="form-group" style={{ flex: '0 0 100px' }}>
-                  <label>Avatar</label>
-                  <select 
-                    className="form-control" 
-                    value={avatar} 
-                    onChange={e => setAvatar(e.target.value)}
-                  >
-                    <option value="👩‍🎓">👩‍🎓 Female</option>
-                    <option value="👨‍🎓">👨‍🎓 Male</option>
-                    <option value="⚡">⚡ Lightning</option>
-                    <option value="🤖">🤖 Cyborg</option>
-                  </select>
-                </div>
               </div>
               <button type="submit" className="btn" style={{ marginTop: '0.5rem' }}>Add Grade Record</button>
             </form>
@@ -172,7 +157,6 @@
 
                 return (
                   <div className="result-card" key={student.id}>
-                    <div className="student-avatar">{student.avatar}</div>
                     <h3 className="student-name">{student.name}</h3>
                     <span className="student-roll">Roll: {student.rollNo}</span>
                     

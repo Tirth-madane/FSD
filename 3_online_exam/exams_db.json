@@ -1,0 +1,164 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice Smith",
+      "email": "alice@student.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "name": "ram",
+      "email": "ram@student.com",
+      "password": "123456"
+    }
+  ],
+  "exams": [
+    {
+      "id": "web-dev-basics",
+      "title": "Web Development Essentials",
+      "duration": 120,
+      "description": "Test your understanding of structural HTML, styling CSS, and dynamic client-side JavaScript.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Which HTML5 tag is used to define key navigation links?",
+          "options": [
+            "<navigate>",
+            "<nav>",
+            "<links>",
+            "<menu>"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": "q2",
+          "text": "What does CSS stand for?",
+          "options": [
+            "Creative Style Sheets",
+            "Computer Style Sheets",
+            "Cascading Style Sheets",
+            "Colorful Style Sheets"
+          ],
+          "correctOption": 2
+        },
+        {
+          "id": "q3",
+          "text": "Which CSS property controls the layout alignment using flexbox?",
+          "options": [
+            "align-content",
+            "display: flex",
+            "flex-flow",
+            "justify-content"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": "q4",
+          "text": "Which operator is used to check for both value and type equality in JavaScript?",
+          "options": [
+            "=",
+            "==",
+            "===",
+            "!=="
+          ],
+          "correctOption": 2
+        },
+        {
+          "id": "q5",
+          "text": "Which API is used in JavaScript to fetch resources asynchronously across the network?",
+          "options": [
+            "fetch()",
+            "AJAX()",
+            "XMLHttp()",
+            "axios()"
+          ],
+          "correctOption": 0
+        }
+      ]
+    },
+    {
+      "id": "js-advanced",
+      "title": "JavaScript ES6+ Deep Dive",
+      "duration": 180,
+      "description": "Advanced topics: arrow functions, promises, array methods, destructuring, and closures.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "What is the output of: console.log(typeof NaN);",
+          "options": [
+            "'number'",
+            "'NaN'",
+            "'undefined'",
+            "'object'"
+          ],
+          "correctOption": 0
+        },
+        {
+          "id": "q2",
+          "text": "Which keyword is block-scoped and allows variable re-assignment?",
+          "options": [
+            "var",
+            "let",
+            "const",
+            "define"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": "q3",
+          "text": "What is the primary purpose of a Promise in JavaScript?",
+          "options": [
+            "Execute loops faster",
+            "Handle asynchronous operations",
+            "Secure page storage",
+            "Manage style variables"
+          ],
+          "correctOption": 1
+        },
+        {
+          "id": "q4",
+          "text": "Which array method creates a new array containing all elements that pass a test condition?",
+          "options": [
+            "map()",
+            "forEach()",
+            "reduce()",
+            "filter()"
+          ],
+          "correctOption": 3
+        },
+        {
+          "id": "q5",
+          "text": "What is the value of 'this' inside an arrow function?",
+          "options": [
+            "The global object",
+            "The element that triggered the event",
+            "Lexically inherited from its outer scope",
+            "undefined"
+          ],
+          "correctOption": 2
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "id": "RES-943957",
+      "userId": "1",
+      "examTitle": "Web Development Essentials",
+      "date": "Jun 1, 2026, 11:09 PM",
+      "score": "0/5",
+      "percentage": 0,
+      "passed": false
+    },
+    {
+      "id": "RES-110209",
+      "userId": "2",
+      "examTitle": "JavaScript ES6+ Deep Dive",
+      "date": "Jun 1, 2026, 11:11 PM",
+      "score": "1/5",
+      "percentage": 20,
+      "passed": false
+    }
+  ]
+}

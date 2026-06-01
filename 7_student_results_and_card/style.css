@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #ec4899; /* Pink-500 */
-  --primary-hover: #db2777;
-  --bg-dark: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --border: rgba(255, 255, 255, 0.08);
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-dark: #f8fafc;
+  --bg-card: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --text-main: #0f172a;
+  --text-muted: #475569;
   --success: #10b981;
-  --danger: #ef4444;
+  --danger: #dc2626;
 }
 
 * {
@@ -44,18 +44,14 @@ body {
 .result-card {
   width: 280px;
   background: var(--bg-card);
-  border: 1px solid var(--border); /* Border */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Shadow */
-  padding: 2rem 1.5rem; /* Padding */
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  padding: 2rem 1.5rem;
   border-radius: 20px;
-  text-align: center; /* Centered text */
-  
-  /* Centering card child elements vertically using Flexbox */
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
+  justify-content: flex-start;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -63,19 +59,6 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(236, 72, 153, 0.15);
   border-color: rgba(236, 72, 153, 0.4);
-}
-
-.student-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
 }
 
 .student-name {
@@ -126,11 +109,12 @@ body {
 
 /* Form Styles */
 .editor-panel {
-  background: rgba(255,255,255,0.02);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem;
   margin-bottom: 2rem;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.06);
 }
 
 .form-row {
@@ -154,11 +138,11 @@ body {
 
 .form-control {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f8fafc;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.6rem 0.8rem;
-  color: white;
+  color: var(--text-main);
   font-size: 0.9rem;
 }
 
@@ -170,11 +154,12 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .btn:hover {
   background: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 .filter-bar {

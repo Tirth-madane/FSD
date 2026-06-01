@@ -196,16 +196,16 @@ async function loadProducts() {
 
     productsContainer.innerHTML = products.map(product => `
       <div class="product-card">
-        <div class="product-img-placeholder">${product.image}</div>
+        <div class="product-img-placeholder">${product.name}</div>
         <div class="product-info">
           <h3 class="product-name">${product.name}</h3>
-          <div class="product-rating">⭐ ${product.rating}</div>
+          <div class="product-rating">Rating: ${product.rating} / 5</div>
           <p class="product-desc-short">${product.desc}</p>
           <div class="product-card-footer">
             <span class="product-price">$${product.price.toFixed(2)}</span>
             <div style="display: flex; gap: 0.5rem;">
               <button class="btn btn-secondary" onclick="viewProductDetail('${product.id}')">Details</button>
-              <button class="btn" onclick="addToCart('${product.id}', '${encodeURIComponent(product.name)}', ${product.price}, '${product.image}')">Add 🛒</button>
+              <button class="btn" onclick="addToCart('${product.id}', '${encodeURIComponent(product.name)}', ${product.price}, '${product.image}')">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -224,19 +224,19 @@ async function viewProductDetail(id) {
     const product = await res.json();
 
     modalContainer.innerHTML = `
-      <button class="close-modal">✕</button>
+      <button class="close-modal">X</button>
       <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;">
-        <div style="font-size: 6rem; background: linear-gradient(135deg, #1e293b, #0f172a); border-radius: 12px; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
-          ${product.image}
+        <div style="background: #e8f0fe; border-radius: 8px; width: 150px; height: 150px; display: flex; align-items: center; justify-content: center; border: 1px solid #ccc; font-weight: 600; color: #4a90d9; font-size: 0.9rem; text-align: center; padding: 10px;">
+          ${product.name}
         </div>
         <div style="flex: 1; min-width: 250px;">
-          <span style="font-size: 0.8rem; background: var(--primary-glow); color: #818cf8; padding: 0.25rem 0.6rem; border-radius: 50px; font-weight: 600;">${product.category}</span>
-          <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0.5rem;">${product.name}</h2>
-          <div class="product-rating" style="margin-bottom: 1rem;">⭐ ${product.rating}</div>
-          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">${product.desc}</p>
+          <span style="font-size: 0.8rem; background: #e8f0fe; color: #4a90d9; padding: 3px 10px; border-radius: 20px; font-weight: 600;">${product.category}</span>
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 8px; margin-bottom: 8px; color: #222;">${product.name}</h2>
+          <div class="product-rating" style="margin-bottom: 12px;">Rating: ${product.rating} / 5</div>
+          <p style="color: #666; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px;">${product.desc}</p>
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 1.6rem; font-weight: 700;">$${product.price.toFixed(2)}</span>
-            <button class="btn" onclick="addToCart('${product.id}', '${encodeURIComponent(product.name)}', ${product.price}, '${product.image}'); document.getElementById('product-detail-modal').style.display='none';">Add to Cart 🛒</button>
+            <span style="font-size: 1.5rem; font-weight: 700; color: #333;">$${product.price.toFixed(2)}</span>
+            <button class="btn" onclick="addToCart('${product.id}', '${encodeURIComponent(product.name)}', ${product.price}, '${product.image}'); document.getElementById('product-detail-modal').style.display='none';">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -267,11 +267,10 @@ window.viewProductDetail = viewProductDetail;
 function renderCart() {
   if (currentCart.length === 0) {
     cartLayoutContainer.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-        <div style="font-size: 4rem; margin-bottom: 1rem;">🛒</div>
+      <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: #888;">
         <h3>Your shopping cart is empty</h3>
-        <p style="margin-top: 0.5rem;">Go to the products page to find our latest collection.</p>
-        <button class="btn" style="margin-top: 1.5rem;" onclick="switchView('products')">Browse Products</button>
+        <p style="margin-top: 8px;">Go to the products page to find our latest collection.</p>
+        <button class="btn" style="margin-top: 20px;" onclick="switchView('products')">Browse Products</button>
       </div>
     `;
     return;
@@ -284,19 +283,18 @@ function renderCart() {
   const listHtml = currentCart.map(item => `
     <div class="cart-item-row">
       <div style="display: flex; align-items: center; gap: 1rem;">
-        <span style="font-size: 2.2rem;">${item.image}</span>
         <div>
-          <h4 style="font-weight: 600;">${item.name}</h4>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">$${item.price.toFixed(2)} each</p>
+          <h4 style="font-weight: 600; color: #222;">${item.name}</h4>
+          <p style="color: #888; font-size: 0.85rem;">$${item.price.toFixed(2)} each</p>
         </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 20px;">
         <div class="qty-control">
           <button class="qty-btn" onclick="updateCartQty('${item.id}', -1)">-</button>
           <span style="font-weight: 600; font-size: 0.95rem;">${item.quantity}</span>
           <button class="qty-btn" onclick="updateCartQty('${item.id}', 1)">+</button>
         </div>
-        <span style="font-weight: 700; min-width: 70px; text-align: right;">$${(item.price * item.quantity).toFixed(2)}</span>
+        <span style="font-weight: 700; min-width: 70px; text-align: right; color: #333;">$${(item.price * item.quantity).toFixed(2)}</span>
       </div>
     </div>
   `).join('');
@@ -305,29 +303,28 @@ function renderCart() {
     <div class="cart-list">
       ${listHtml}
     </div>
-    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; height: fit-content;">
-      <h3 style="font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Order Summary</h3>
-      <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: var(--text-muted);">
+    <div style="background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; height: fit-content;">
+      <h3 style="font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Order Summary</h3>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px; color: #666;">
         <span>Subtotal</span>
         <span>$${subtotal.toFixed(2)}</span>
       </div>
-      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: var(--text-muted);">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; color: #666;">
         <span>Estimated Tax (8%)</span>
         <span>$${tax.toFixed(2)}</span>
       </div>
-      <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.15rem; border-top: 1px solid var(--border); padding-top: 0.8rem; margin-bottom: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; border-top: 1px solid #eee; padding-top: 10px; margin-bottom: 20px; color: #222;">
         <span>Total</span>
         <span>$${total.toFixed(2)}</span>
       </div>
       
-      <!-- Checkout Form inside Cart page -->
-      <div style="margin-bottom: 1rem;">
-        <h4 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Shipping Address</h4>
+      <div style="margin-bottom: 12px;">
+        <h4 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Shipping Address</h4>
         <textarea id="checkout-address" class="form-control" rows="2" placeholder="Street Address, City, Pincode"></textarea>
         <div class="error-msg" id="checkout-address-err"></div>
       </div>
       
-      <button class="btn" style="width: 100%; padding: 0.8rem;" onclick="processCheckout(${total})">Place Order</button>
+      <button class="btn" style="width: 100%; padding: 10px;" onclick="processCheckout(${total})">Place Order</button>
     </div>
   `;
 }
@@ -416,7 +413,7 @@ async function loadOrders() {
         <div class="order-item-list">
           ${order.items.map(item => `
             <div class="order-item">
-              <span>${item.image} ${item.name} (x${item.quantity})</span>
+              <span>${item.name} (x${item.quantity})</span>
               <span>$${(item.price * item.quantity).toFixed(2)}</span>
             </div>
           `).join('')}

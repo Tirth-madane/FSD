@@ -54,7 +54,7 @@
     <!-- Section 2: Box Slide Animation Control Deck -->
     <section>
       <h2>Movable Box Animation Track</h2>
-      <p>Control the box motion inside the track by toggling play state and modifying duration rates dynamically.</p>
+      <p>Control the box motion inside the track by pausing and resuming the normal animation.</p>
       
       <!-- Track Runway -->
       <div class="animation-track">
@@ -64,10 +64,6 @@
       <!-- Controls Deck -->
       <div class="controls-group">
         <button class="btn" id="play-pause-btn">Pause Animation</button>
-        <button class="btn btn-secondary" onclick="adjustSpeed('2s', 'Fast')">Fast (2s)</button>
-        <button class="btn btn-secondary" onclick="adjustSpeed('4s', 'Normal')">Normal (4s)</button>
-        <button class="btn btn-secondary" onclick="adjustSpeed('8s', 'Slow')">Slow (8s)</button>
-        <span id="speed-label" style="align-self: center; font-size: 0.9rem; color: var(--text-muted); margin-left: 1rem;">Speed: Normal</span>
       </div>
     </section>
 
@@ -140,7 +136,6 @@
     // --- PART B: Box Animation Controller ---
     const movingBox = document.getElementById('moving-box');
     const playPauseBtn = document.getElementById('play-pause-btn');
-    const speedLabel = document.getElementById('speed-label');
 
     playPauseBtn.addEventListener('click', () => {
       // Toggle play state value
@@ -156,11 +151,6 @@
         playPauseBtn.style.background = 'var(--primary)'; // Restore emerald
       }
     });
-
-    window.adjustSpeed = function(duration, speedName) {
-      movingBox.style.animationDuration = duration;
-      speedLabel.innerText = `Speed: ${speedName}`;
-    };
 
     // Initial session loading
     loadSessionData();
